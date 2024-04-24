@@ -1,0 +1,17 @@
+<!-- astrology/templates/astrology/prediction_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create/Edit Prediction</title>
+</head>
+<body>
+    <h1>Create/Edit Prediction</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Prediction</button>
+    </form>
+    <a href="{% url 'astrology:prediction_list' %}">Back to Prediction List</a>
+</body>
+</html>

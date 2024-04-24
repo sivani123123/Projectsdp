@@ -1,0 +1,14 @@
+<!-- astrology/templates/astrology/prediction_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ prediction.title }} Detail</title>
+</head>
+<body>
+    <h1>{{ prediction.title }} Detail</h1>
+    <p>Description: {{ prediction.description }}</p>
+    <p>Date Predicted: {{ prediction.date_predicted }}</p>
+    <a href="{% url 'astrology:prediction_list' %}">Back to Prediction List</a>
+</body>
+</html>

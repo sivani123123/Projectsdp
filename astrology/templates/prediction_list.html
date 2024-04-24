@@ -1,0 +1,19 @@
+<!-- astrology/templates/astrology/prediction_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction List</title>
+</head>
+<body>
+    <h1>Prediction List</h1>
+    <ul>
+        {% for prediction in predictions %}
+            <li>
+                <a href="{% url 'astrology:prediction_detail' pk=prediction.pk %}">{{ prediction.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'astrology:prediction_create' %}">Create Prediction</a>
+</body>
+</html>

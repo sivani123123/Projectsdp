@@ -1,0 +1,17 @@
+<!-- astrology/templates/astrology/prediction_confirm_delete.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Deletion</title>
+</head>
+<body>
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete "{{ prediction.title }}"?</p>
+    <form method="post" action="">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+    </form>
+    <a href="{% url 'astrology:prediction_list' %}">Cancel</a>
+</body>
+</html>

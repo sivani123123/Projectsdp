@@ -1,0 +1,85 @@
+{% block content %}
+{% load static %}
+<html>
+<head>
+    <title>Astrology</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <style>
+        h3{
+        margin-right: 100px;}
+
+        marquee{
+
+     text-shadow: 0 0 15px white;
+     font-size: larger;}
+
+     h1{text-shadow: 0 0 15px #63bbf2;}
+
+li{
+font-size:28px;
+font-weight: bold;
+}
+.navbar li {
+        margin-right: 20px; /* Adjust the value as needed */
+    }
+    </style>
+
+</head>
+<body id="bg" style="background-image:url('{% static 'images/new1.jpg' %}');">
+<nav class="navbar" style = "background-color:#f7b602">
+    <div class="logo">Astrology</div>
+    <ul class="nav-links">
+      <div class="menu">
+   <body align="center">
+<li><a href="{% url 'zodiac' %}"><strong>Zodiac Sign</strong></a></li>
+<li><a href="{% url 'horoscopic'%}">Horoscope</a></li>
+<li><a href="{% url 'feedback'%}">Feedback Form</a></li>
+<li><a href="{% url 'changepassword'%}">Change Password</a></li>
+<li><a href="{% url 'help'%}">Help</a></li>
+<li><a href="{% url 'home' %}">Logout</a></li>
+<li class="nav-item">
+            <img src="{% static 'images/acc.png' %}" width="50", height="50" alt=" ">
+        </li>
+ <script type="text/javascript">
+    (function(d, m){
+        var kommunicateSettings =
+            {"appId":"18c0bf57f892fd93dcb4c306174e24e0a","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+</script>
+   </body>
+      </div>
+    </ul>
+</nav>
+
+<br>
+<marquee style="color:black; font-size:24px"><strong>Get daily horoscope updates and astrological insights on our astrology website.</strong></marquee>
+<br><br>
+
+<h1  style="color:#FFFFFF;font-size:48px"> Zodiac Sign </h1><br><br>
+
+    <form method="post" action="{% url 'zodiac' %}">
+
+        {% csrf_token %}
+        <label for="month"  style="color:#FFFFFF; font-size: 32px;">Month of your birth:</label>
+        <input type="text" id="month" name="month" placeholder="e.g., January" style="font-size: 24px;width: 250px"><br><br>
+
+        <label for="day"  style="color:#FFFFFF; font-size: 32px;">Date of your birth:</label>
+<input type="number" id="day" name="day" placeholder="e.g., 10" style="font-size: 24px; width: 250px" min="1" max="31"><br><br>
+        <label for="place"  style="color:#FFFFFF; font-size: 32px;">Place of birth: </label>
+        <input type="text" id="place" name="place" placeholder="e.g. vijayawada" style="font-size: 24px; width: 250px;"><br><br>
+
+        <input type="submit" value="Submit" class="button">
+    </form><br><br>
+    <b><p  style="color:#FFFFFF;font-size: 48px;">You were born under the sign:{{ astro_sign }}</p></b>
+</body>
+</html>
+
+{% endblock %}
